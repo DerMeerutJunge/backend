@@ -16,7 +16,7 @@ if (!fs.existsSync(DB_FILE)) {
 }
 
 app.get("/", (req, res) => {
-  res.send("OK);
+  res.send("OK");
 });
 
 // Save waitlist
