@@ -16,7 +16,7 @@ if (!fs.existsSync(DB_FILE)) {
 }
 
 app.get("/", (req, res) => {
-  res.json({running: true});
+  res.send("OK);
 });
 
 // Save waitlist
@@ -59,6 +59,6 @@ app.get("/admin/data", (req, res) => {
   res.send(data);
 });
 
-app.listen(3000, () => {
-  console.log("Server running on http://localhost:3000");
+app.listen(PORT, () => {
+  console.log(`Server running on http://localhost: {$PORT}`);
 });
