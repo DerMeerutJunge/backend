@@ -62,8 +62,11 @@ async def survey(req: Request):
 
 
 @app.get("/admin/data")
-def download_data(key: str):
+def get_data(key: str):
     if key != os.environ.get("ADMIN_KEY"):
         raise HTTPException(status_code=403, detail="Unauthorized")
 
-    return FileResponse(DB_FILE, filename="data.json")
+    with open(DB_FILE, "r") as f:
+        data = json.load(f)
+
+    return data
