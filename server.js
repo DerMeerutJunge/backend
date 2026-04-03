@@ -15,6 +15,10 @@ if (!fs.existsSync(DB_FILE)) {
   fs.writeFileSync(DB_FILE, JSON.stringify({ waitlist: [], survey: [] }));
 }
 
+app.get("/", (req, res) => {
+  res.json({running: true});
+});
+
 // Save waitlist
 app.post("/waitlist", (req, res) => {
   const data = JSON.parse(fs.readFileSync(DB_FILE));
